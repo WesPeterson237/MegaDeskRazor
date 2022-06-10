@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,6 +10,7 @@ namespace MegaDeskRazor
     {
         public int DeliveryTypeId { get; set; }
 
+        [Display(Name = "Delivery")]
         public string DeliveryName { get; set; }
 
         public decimal PriceUnder1000 { get; set; }

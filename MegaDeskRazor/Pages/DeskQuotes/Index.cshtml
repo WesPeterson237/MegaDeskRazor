@@ -23,7 +23,10 @@
                 @Html.DisplayNameFor(model => model.DeskQuote[0].QuotePrice)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].DeliveryType)
+                @Html.DisplayNameFor(model => model.DeskQuote[0].DeliveryType.DeliveryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].Desk.DesktopMaterial.DesktopMaterialName)
             </th>
          
             <th></th>
@@ -42,10 +45,10 @@
                 @Html.DisplayFor(modelItem => item.QuotePrice)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DeliveryType.DeliveryTypeId)
+                @Html.DisplayFor(modelItem => item.DeliveryType.DeliveryName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Desk.DeskId)
+                @Html.DisplayFor(modelItem => item.Desk.DesktopMaterial.DesktopMaterialName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.DeskQuoteId">Edit</a> |

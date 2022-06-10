@@ -25,7 +25,9 @@ namespace MegaDeskRazor.Pages.DeskQuotes
         {
             DeskQuote = await _context.DeskQuote
                 .Include(d => d.DeliveryType)
-                .Include(d => d.Desk).ToListAsync();
+                .Include(d => d.Desk)
+                .Include(d => d.Desk.DesktopMaterial)
+                .ToListAsync();
         }
     }
 }
