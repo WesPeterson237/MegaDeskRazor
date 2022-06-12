@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MegaDeskRazor;
 using MegaDeskRazor.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MegaDeskRazor.Pages.DeskQuotes
 {
@@ -23,6 +24,9 @@ namespace MegaDeskRazor.Pages.DeskQuotes
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            ViewData["DeliveryTypeId"] = new SelectList(_context.DeliveryType, "DeliveryTypeId", "DeliveryName");
+            ViewData["DesktopMaterialId"] = new SelectList(_context.DesktopMaterial, "DesktopMaterialId", "DesktopMaterialName");
+
             if (id == null)
             {
                 return NotFound();
