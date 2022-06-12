@@ -39,6 +39,7 @@ namespace MegaDeskRazor.Pages.DeskQuotes
             {
                 return NotFound();
             }
+
             ViewData["DeliveryTypeId"] = new SelectList(_context.DeliveryType, "DeliveryTypeId", "DeliveryName");
             ViewData["DesktopMaterialId"] = new SelectList(_context.DesktopMaterial, "DesktopMaterialId", "DesktopMaterialName");
             return Page();
@@ -57,6 +58,16 @@ namespace MegaDeskRazor.Pages.DeskQuotes
 
             try
             {
+                await _context.SaveChangesAsync();
+
+                // Quote price reset
+                DeskQuote.QuotePrice = DeskQuote.GetQuotePrice(_context);
+
+                // Set new Date
+                DeskQuote.QuoteDate = DateTime.Now;
+
+                // Save DeskQuote
+                _context.Attach(DeskQuote).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
