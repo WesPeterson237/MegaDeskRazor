@@ -17,7 +17,8 @@ namespace MegaDeskRazor
 
         [Display(Name="Desktop Material")]
         public int DesktopMaterialId { get; set; }
-        
+
+        [Display(Name = "Desktop Material")]
         public DesktopMaterial DesktopMaterial { get; set; }
         public DeskQuote DeskQuote { get; set; }
     }

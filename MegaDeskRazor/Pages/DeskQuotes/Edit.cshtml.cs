@@ -34,12 +34,13 @@ namespace MegaDeskRazor.Pages.DeskQuotes
                 .Include(d => d.DeliveryType)
                 .Include(d => d.Desk).FirstOrDefaultAsync(m => m.DeskQuoteId == id);
 
+
             if (DeskQuote == null)
             {
                 return NotFound();
             }
-           ViewData["DeliveryTypeId"] = new SelectList(_context.Set<DeliveryType>(), "DeliveryTypeId", "DeliveryTypeId");
-           ViewData["DeskId"] = new SelectList(_context.Set<Desk>(), "DeskId", "DeskId");
+            ViewData["DeliveryTypeId"] = new SelectList(_context.DeliveryType, "DeliveryTypeId", "DeliveryName");
+            ViewData["DesktopMaterialId"] = new SelectList(_context.DesktopMaterial, "DesktopMaterialId", "DesktopMaterialName");
             return Page();
         }
 

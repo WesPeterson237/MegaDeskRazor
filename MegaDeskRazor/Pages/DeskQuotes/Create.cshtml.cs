@@ -50,7 +50,7 @@ namespace MegaDeskRazor.Pages.DeskQuotes
 
             DeskQuote.QuoteDate = DateTime.Now;
 
-            //DeskQuote.QuotePrice = DeskQuote.GetQuotePrice(_context);
+            DeskQuote.QuotePrice = DeskQuote.GetQuotePrice(_context);
 
             _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();
